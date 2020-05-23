@@ -23,8 +23,17 @@ let conf = {
 				exclude: '/node_modules/',
 			},
 			{
+        		// Fonts
+		        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+		        loader: "file-loader",
+		        options: {
+		          name: "[name].[ext]"
+		        }
+		    },
+			{
 				test: /\.(s*)css$/,
 				use: [
+					'style-loader',
 					 MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',

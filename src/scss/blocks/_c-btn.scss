@@ -1,4 +1,6 @@
-
+body{
+	background: red;
+}
 
 .c-btn{
 	@include media-breakpoint-down(lg) {
