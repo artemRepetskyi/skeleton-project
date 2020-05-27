@@ -9,6 +9,16 @@ let conf = {
 	},
 	devServer: {
 		overlay: true,
+		// hot: false,
+	    // inline: true,
+	    // contentBase: './',
+	    proxy: {
+	      '*': {
+	        target: 'http://car-team.loc',
+	        secure: false,
+	        changeOrigin: true
+	      }
+	    },
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
