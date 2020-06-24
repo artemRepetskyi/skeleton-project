@@ -2,10 +2,10 @@
 npm install
 
 
-#dev
+# dev
 
 npm run dev
 
-#prod
+# prod
 
 npm run build
