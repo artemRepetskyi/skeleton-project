@@ -12,12 +12,15 @@
 }
 
 
+// EACH PROPERTY
+@mixin each-property($colors, $property) {
+	@each $key, $color in $colors {
+	    // $index: index($colors, ($key $color));
+	    .#{$property}-#{$key} {
+	        #{$property}: $color;
+	    }
+	}
+}
 
-// @mixin breakpoint($size) {
-//     @media only screen and (max-width : $size + px) { @content; }
-// }
-// Usage
-// .main{
-//     width:1100px;
-//     @include breakpoint(940){ width:100%; }
-// }
+// @include each-property($colors, 'color');
+

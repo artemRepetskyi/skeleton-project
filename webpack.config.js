@@ -12,13 +12,13 @@ let conf = {
 		// hot: false,
 	    // inline: true,
 	    // contentBase: './',
-	    proxy: {
-	      '*': {
-	        target: 'http://car-team.loc',
-	        secure: false,
-	        changeOrigin: true
-	      }
-	    },
+	    // proxy: {
+	    //   '*': {
+	    //     target: 'http://car-team.loc',
+	    //     secure: false,
+	    //     changeOrigin: true
+	    //   }
+	    // },
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
