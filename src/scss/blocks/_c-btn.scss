@@ -1,20 +1,4 @@
-body{
-	background: red;
-}
-
 .c-btn{
-	@include media-breakpoint-down(lg) {
-		top: 0;
-		left: 0; 
-		position: absolute;
-	}
-	&--primary{
-		@include media-breakpoint-down(lg) {
-			position: absolute;
-			top: 0;
-			left: 0; 
-			background: red;
-		}
-	}
+	
 }
 
