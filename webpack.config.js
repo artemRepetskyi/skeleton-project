@@ -1,45 +1,70 @@
-let path = require('path');
-let MiniCssExtractPlugin = require('mini-css-extract-plugin');	
-let conf = {
-	entry: './src/index.js',
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')	
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
+
+
+
+
+// Functions
+
+const filename = ext => `[name].${ext}`;
+
+
+
+
+
+module.exports = {
+	entry: {
+	    main: './src/index.js',
+	    indexSecondary: './src/index-secondary.js',
+	},
 	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: 'main.js',
-		publicPath: 'dist/'
+		filename: filename('js'),
+		publicPath: 'dist/',
+		path: path.resolve(__dirname, 'dist'),
+	},
+	optimization: {
+	    splitChunks: {
+	      chunks: 'all'
+	    }
 	},
 	devServer: {
 		overlay: true,
-		// hot: false,
-	    // inline: true,
-	    // contentBase: './',
-	    // proxy: {
-	    //   '*': {
-	    //     target: 'http://car-team.loc',
-	    //     secure: false,
-	    //     changeOrigin: true
-	    //   }
-	    // },
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
-		})
+			filename: filename('css'),
+		}),
+		new CleanWebpackPlugin(),
 	],
 	module: {
 		rules: [
+			// JS
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
 				exclude: '/node_modules/',
+				loader: {
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							'@babel/preset-env',
+						],
+						plugins: [
+							'@babel/plugin-proposal-class-properties',
+						]
+					},
+				},
 			},
+			// FONTS
 			{
-        		// Fonts
 		        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 		        loader: "file-loader",
 		        options: {
 		          name: "[name].[ext]"
 		        }
 		    },
+		    // CSS
 			{
 				test: /\.(s*)css$/,
 				use: [
@@ -56,10 +81,8 @@ let conf = {
 						options: {sourceMap:true}
 					},
 				],
-				// exclude: '/node_modules/',
 			}
 		],
 	},
 };
 
-module.exports = conf;
