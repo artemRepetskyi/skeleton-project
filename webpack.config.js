@@ -21,7 +21,7 @@ module.exports = {
 	},
 	output: {
 		filename: filename('js'),
-		publicPath: 'dist/',
+		// publicPath: 'dist/',
 		path: path.resolve(__dirname, 'dist'),
 	},
 	optimization: {
@@ -61,7 +61,8 @@ module.exports = {
 		        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 		        loader: "file-loader",
 		        options: {
-		          name: "[name].[ext]"
+		          name: "[name].[ext]",
+	              outputPath: 'fonts/'
 		        }
 		    },
 		    // CSS
