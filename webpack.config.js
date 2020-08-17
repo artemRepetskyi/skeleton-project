@@ -21,8 +21,8 @@ module.exports = {
 	},
 	output: {
 		filename: filename('js'),
-		// publicPath: 'dist/',
-		path: path.resolve(__dirname, 'dist'),
+		publicPath: 'dist/',
+		path: path.resolve(__dirname, './dist'),
 	},
 	optimization: {
 	    splitChunks: {
@@ -83,15 +83,6 @@ module.exports = {
 					},
 				],
 			},
-			// IMAGES
-			{
-		        test: /\.(png|jpe?g|gif|svg)$/i,
-		        loader: 'file-loader',
-		        options: {
-		          name: 'assets/images/[name].[ext]',
-		          // publicPath: '../src/assets/images',
-		        },
-		    },
 		],
 	},
 };
