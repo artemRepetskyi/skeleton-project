@@ -61,8 +61,8 @@ module.exports = {
 		        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 		        loader: "file-loader",
 		        options: {
-		          name: "[name].[ext]",
-	              outputPath: 'fonts/'
+		          name: "assets/fonts/[name].[ext]",
+	              // outputPath: 'fonts/'
 		        }
 		    },
 		    // CSS
@@ -82,7 +82,16 @@ module.exports = {
 						options: {sourceMap:true}
 					},
 				],
-			}
+			},
+			// IMAGES
+			{
+		        test: /\.(png|jpe?g|gif|svg)$/i,
+		        loader: 'file-loader',
+		        options: {
+		          name: 'assets/images/[name].[ext]',
+		          // publicPath: '../src/assets/images',
+		        },
+		    },
 		],
 	},
 };
