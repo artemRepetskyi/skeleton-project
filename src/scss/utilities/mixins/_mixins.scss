@@ -6,21 +6,14 @@
 }
 
 
-@mixin square($size) {
-	width:$size;
-	height:$size;
-}
-
-
 // EACH PROPERTY
-@mixin each-property($colors, $property) {
-	@each $key, $color in $colors {
+@mixin each-property($properties, $property, $className) {
+	@each $key, $value in $properties {
 	    // $index: index($colors, ($key $color));
-	    .#{$property}-#{$key} {
-	        #{$property}: $color;
+	    .#{$className}-#{$key} {
+	        #{$property}: $value; 
 	    }
 	}
 }
 
-// @include each-property($colors, 'color');
 

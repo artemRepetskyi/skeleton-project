@@ -1,0 +1,8 @@
+$main-font-size: 10px;
+
+
+$opacities: (
+    1: 0.1,
+);
+
+@include each-property($opacities, opacity, 'opacity'); 
